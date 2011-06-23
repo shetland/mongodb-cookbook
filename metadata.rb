@@ -12,6 +12,10 @@ recipe "mongodb::mongos", "Sets up config and initialization to run mongos, the 
 recipe "mongodb::server", "Set up config and initialization to run mongod as a database server"
 recipe "mongodb::source", "Installs MongoDB from source and includes init.d script"
 
+%w{ logrotate monit }.each do |cb|
+  depends cb
+end
+
 %w{ ubuntu debian }.each do |os|
   supports os
 end
