@@ -87,5 +87,5 @@ noauth = true
   # Custom size for replication operation log.
   oplogSize = <%= config[:oplogsize] %>
   # Size limit for in-memory storage of op ids.
-  opIdMem = <%= config[:opidmem] * 1024 * 1024 %>
+  opIdMem = <%= config[:opidmem].to_i * 1024 * 1024 %>
 <% end %>
