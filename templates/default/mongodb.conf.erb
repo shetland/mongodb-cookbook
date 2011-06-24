@@ -45,7 +45,7 @@
 	end
 %>
 
-<% if config[:auth] %>
+<% if config[:auth] == "true" %>
 # Turn on/off security. Off is currently the default
 # Not sure if this was fixed, but auth=false didn't use to work
 auth = true
@@ -53,7 +53,7 @@ auth = true
 noauth = true
 <% end %>
 
-<% if config[:mms] %>
+<% if config[:mms] == "true" %>
   # Accout token for Mongo monitoring server.
   mms-token = <%= config[:token] %>
 
@@ -64,7 +64,7 @@ noauth = true
   mms-interval = <%= config[:interval] %>
 <% end %>
 
-<% if config[:replication] %>
+<% if config[:replication] == "true" %>
   # Replication Options
   # in replicated mongo databases, specify here whether this is a slave or master
   <% if config[:slave] %>
@@ -78,12 +78,12 @@ noauth = true
 
   <% end %>
 
-  <% if config[:master] %>
+  <% if config[:master] == "true" %>
   master = <%= config[:master] %>
   <% end %>
 
   # Automatically resync if slave data is stale
-  <%= "autoresync" if config[:autoresync] %>
+  <%= "autoresync" if config[:autoresync] == "true" %>
   # Custom size for replication operation log.
   oplogSize = <%= config[:oplogsize] %>
   # Size limit for in-memory storage of op ids.
