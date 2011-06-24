@@ -21,7 +21,7 @@ stop on runlevel [06]
 script
   ENABLE_MONGODB="yes"
 
-  DAEMON=<%= @binary %>
+  DAEMON=/usr/bin/<%= @binary %>
   NAME=<%= @server_type %>
 
   # Default defaults. Can be overridden by the /etc/default/$NAME
@@ -71,5 +71,5 @@ script
     SHARDSVR=
   fi
 
-  if [ "x$ENABLE_MONGODB" = "xyes" ]; then exec start-stop-daemon --start --quiet --chuid mongodb --exec  /usr/bin/$DAEMON -- $REST $REPLSET $SHARDSVR $CONFIGSVR $SYNCDELAY $CONFIGDB --config $CONF; fi
+  if [ "x$ENABLE_MONGODB" = "xyes" ]; then exec start-stop-daemon --start --quiet --chuid mongodb --exec $DAEMON -- $REST $REPLSET $SHARDSVR $CONFIGSVR $SYNCDELAY $CONFIGDB --config $CONF; fi
 end script
