@@ -5,12 +5,15 @@ default[:mongodb][:i686][:checksum]   = "7970858350cda1f3eed4b967e67a64f8"
 default[:mongodb][:x86_64][:checksum] = "58ebc4c9e1befd9847029592011fb9ed"
 
 # we'll be re-using this across all server type configs
+
+bind_ip = [ "127.0.0.1" ]
+
 if node[:network][:interfaces][:eth0]
-  bind_ip = node[:network][:interfaces][:eth0][:addresses].select do |address, values|
+  bind_ip << node[:network][:interfaces][:eth0][:addresses].select do |address, values|
     values['family'] == 'inet'
   end.first.first
 else
-  bind_ip = "0.0.0.0"
+  bind_ip = [ "0.0.0.0" ]
 end
 
 ##########################################################################
