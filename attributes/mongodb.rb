@@ -28,46 +28,46 @@ default[:mongodb][:server][:system_init]           = "sysv"
 
 ### EXTRA
 default[:mongodb][:server][:auth]                  = "false"
-default[:mongodb][:server][:cpu]                   = "false"
-default[:mongodb][:server][:diaglog]               = "false"
+default[:mongodb][:server][:cpu]                   = nil
+default[:mongodb][:server][:diaglog]               = nil
 default[:mongodb][:server][:logappend]             = "true"
-default[:mongodb][:server][:nocursors]             = "false"
-default[:mongodb][:server][:nohints]               = "false"
-default[:mongodb][:server][:nohttpinterface]       = "false"
-default[:mongodb][:server][:noscripting]           = "false"
-default[:mongodb][:server][:notablescan]           = "false"
-default[:mongodb][:server][:noprealloc]            = "false"
-default[:mongodb][:server][:nssize]                = "false"
-default[:mongodb][:server][:objcheck]              = "false"
-default[:mongodb][:server][:password]              = ""
-default[:mongodb][:server][:quota]                 = "false"
-default[:mongodb][:server][:username]              = ""
-default[:mongodb][:server][:verbose]               = "false"
+default[:mongodb][:server][:nocursors]             = nil
+default[:mongodb][:server][:nohints]               = nil
+default[:mongodb][:server][:nohttpinterface]       = nil
+default[:mongodb][:server][:noscripting]           = nil
+default[:mongodb][:server][:notablescan]           = nil
+default[:mongodb][:server][:noprealloc]            = nil
+default[:mongodb][:server][:nssize]                = nil
+default[:mongodb][:server][:objcheck]              = nil
+default[:mongodb][:server][:password]              = nil
+default[:mongodb][:server][:quota]                 = nil
+default[:mongodb][:server][:username]              = nil
+default[:mongodb][:server][:verbose]               = nil
 
 ### STARTUP
-default[:mongodb][:server][:rest]                  = "false"
+default[:mongodb][:server][:rest]                  = nil
 default[:mongodb][:server][:syncdelay]             = "60"
 
 ### MMS
-default[:mongodb][:server][:mms]                   = "false"
+default[:mongodb][:server][:mms]                   = nil
 default[:mongodb][:server]['mms-interval']         = ""
 default[:mongodb][:server]['mms-name']             = ""
 default[:mongodb][:server]['mms-token']            = ""
 
 ### REPLICATION
-default[:mongodb][:server][:autoresync]            = "false"
-default[:mongodb][:server][:master]                = "false"
+default[:mongodb][:server][:autoresync]            = nil
+default[:mongodb][:server][:master]                = nil
 default[:mongodb][:server][:master_source]         = ""
 default[:mongodb][:server][:opidmem]               = "0"
 default[:mongodb][:server][:oplogsize]             = "0"
-default[:mongodb][:server][:replication]           = "false"
+default[:mongodb][:server][:replication]           = nil
 default[:mongodb][:server][:replSet]               = ""
-default[:mongodb][:server][:slave]                 = "false"
+default[:mongodb][:server][:slave]                 = nil
 default[:mongodb][:server][:slave_only]            = ""
 default[:mongodb][:server][:slave_source]          = ""
 
 ### SHARDING
-default[:mongodb][:server][:shard_server]          = "false"
+default[:mongodb][:server][:shard_server]          = nil
 
 ### BACKUP
 default[:mongodb][:server][:backup][:backupdir]    = "/var/backups/mongodb"
