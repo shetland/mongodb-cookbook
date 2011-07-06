@@ -40,7 +40,7 @@ class Chef
 			init_variables = variables[:init] || {}
 			init_variables[:server_type] = name.to_sym
 
-			case node[:mongodb][:system_init]
+			case node[:mongodb][name][:system_init]
       when "upstart"
 				template "/etc/init/#{service_name}.conf" do
 					source "mongodb.upstart.erb"
@@ -79,8 +79,8 @@ class Chef
 				subscribes :restart, resources(:template => "/etc/init/#{service_name}.conf") if node[:mongodb][:installed_from] == "apt"
 			end
 
-			logrotate "mongodb-#{service_name}" do
-				files config[:logpath]
+			logrotate_app "mongodb-#{service_name}" do
+				path config[:logpath]
 				frequency "daily"
 				rotate_count 7
 				compress true
